@@ -3,6 +3,12 @@ package ca.nl.cna.java2.assignmenthelp.a1;
 public class InvalidAccountActionException extends Exception {
 
     //TODO Default message
+    public static String DEFAULT_MESSAGE = "Invalid account action";
+
+
+    public InvalidAccountActionException() {
+        super(DEFAULT_MESSAGE);
+    }
 
     public InvalidAccountActionException(String message) {
         super(message);
@@ -13,10 +19,8 @@ public class InvalidAccountActionException extends Exception {
     }
 
     public InvalidAccountActionException(Throwable cause) {
-        super(cause);
+        super(DEFAULT_MESSAGE, cause);
     }
 
-    protected InvalidAccountActionException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
+
 }
