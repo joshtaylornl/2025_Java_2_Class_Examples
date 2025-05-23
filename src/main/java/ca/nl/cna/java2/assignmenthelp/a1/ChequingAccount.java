@@ -10,6 +10,8 @@ public class ChequingAccount extends BankAccount{
     public static final double TRANSACTION_FEE = 2.0;
 
     private int transactionCount;
+    //TODO Create multiple transaction counters? Your option
+
 
     /**
      * Create a chequing account with a balance of 0.
@@ -23,7 +25,7 @@ public class ChequingAccount extends BankAccount{
      * Create a chequing account with an initial balance. Negative balance is ignored.
      * @param balance initial balance
      */
-    public ChequingAccount(double balance) {
+    public ChequingAccount(double balance) throws InvalidAccountActionException {
         super(balance);
         this.transactionCount = 0;
     }
@@ -36,9 +38,9 @@ public class ChequingAccount extends BankAccount{
     public void deposit(double amount) {
         super.deposit(amount);
         transactionCount++;
-        if(transactionCount >= FREE_TRANSACTIONS) {
-            chargeFees();
-        }
+//        if(transactionCount >= FREE_TRANSACTIONS) {
+//            chargeFees();
+//        }
     }
 
     /**
@@ -49,15 +51,16 @@ public class ChequingAccount extends BankAccount{
     public void withdraw(double amount) {
         super.withdraw(amount);
         transactionCount++;
-        if(transactionCount >= FREE_TRANSACTIONS) {
-            chargeFees();
-        }
+//        if(transactionCount >= FREE_TRANSACTIONS) {
+//            chargeFees();
+//        }
     }
 
     /**
      * Charge a transaction fee to the account
      */
     private void chargeFees(){
+        //TODO fix this
         this.balance -= TRANSACTION_FEE;
     }
 

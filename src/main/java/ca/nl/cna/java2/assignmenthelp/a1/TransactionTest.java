@@ -10,7 +10,12 @@ public class TransactionTest {
         Random rand = new Random();
         double amount = rand.nextInt(100);
 
-        ChequingAccount account = new ChequingAccount(10000);
+        ChequingAccount account = null;
+        try {
+            account = new ChequingAccount(-10000);
+        } catch (InvalidAccountActionException e) {
+            System.err.println(e.getMessage());
+        }
 
         for (int i = 0; i < 10; i++) {
             double withdrawAmount = rand.nextInt(100);

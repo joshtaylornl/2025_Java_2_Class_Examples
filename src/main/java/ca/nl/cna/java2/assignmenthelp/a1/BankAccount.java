@@ -5,6 +5,8 @@ package ca.nl.cna.java2.assignmenthelp.a1;
  */
 public class BankAccount {
 
+    //This does not feel right!
+    //If you make this private you need to add methods for transferIn and transferOut
     protected double balance;
 
     /**
@@ -18,9 +20,12 @@ public class BankAccount {
      * Create an account with an initial balance. If balance is negative the balance is set to 0.
      * @param balance initial balance
      */
-    public BankAccount(double balance) {
+    //TODO Add the exception here
+    public BankAccount(double balance) throws InvalidAccountActionException {
         if(balance > 0){
             this.balance = balance;
+        } else {
+            throw new InvalidAccountActionException("Can't create an account with balance less than 0");
         }
     }
 
@@ -36,6 +41,7 @@ public class BankAccount {
      * Deposit funds into the account. Negative deposit is ignored.
      * @param amount amount to deposit
      */
+    //TODO Add the exception here
     public void deposit(double amount) {
         if(amount > 0){
             this.balance += amount;
@@ -47,6 +53,7 @@ public class BankAccount {
      * If funds are not sufficient then the withdrawal is ignored.
      * @param amount amount to withdraw.
      */
+    //TODO Add the exception here
     public void withdraw(double amount) {
         if(amount > 0 && this.balance >= amount){
             this.balance -= amount;
@@ -70,8 +77,8 @@ public class BankAccount {
      */
     public static void transfer(BankAccount source, BankAccount destination, double amount) {
         if(amount > 0 && source.balance >= amount){
-            source.withdraw(amount);
-            destination.deposit(amount);
+            source.balance -= amount;
+            destination.balance += amount;
         }
     }
 
