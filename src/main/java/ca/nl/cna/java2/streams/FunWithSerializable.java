@@ -9,6 +9,8 @@ import java.io.*;
  */
 public class FunWithSerializable {
 
+    public static String source_folder = "file_examples";
+
     public static void main(String[] args) {
         System.out.println("Fun with Serializing Objects!");
 
@@ -17,7 +19,7 @@ public class FunWithSerializable {
         printCustomer(customer);
 
         //Serialized the object and saved it to a file
-        String fileName = "CustomerObj.ser";
+        String fileName = source_folder + "\\CustomerObj.ser";
         try {
             File file = new File(fileName);     //Find or create the file
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));

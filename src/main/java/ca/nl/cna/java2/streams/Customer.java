@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author Josh
  */
-public class Customer implements Serializable {
+public class Customer  implements Serializable {
 
     private String firstName;
     private String lastName;
