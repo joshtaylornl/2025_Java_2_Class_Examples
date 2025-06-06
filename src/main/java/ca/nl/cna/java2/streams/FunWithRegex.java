@@ -8,16 +8,21 @@ import java.util.Scanner;
  */
 public class FunWithRegex {
 
+    //New one googled in 2025
+    public static final String EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z0-9.-]+$";
+
+    //The old one
+    //public static final String EMAIL_REGEX = "^(.+)@(.+)$";
+
     public static void main(String[] args) {
         System.out.println("Fun with Regular Expressions");
         Scanner scanner = new Scanner(System.in);
 
-        String regex = "^(.+)@(.+)$";
         String email = "";
 
         do{
 
-            System.out.println("Enter an email:");
+            System.out.println("Enter an email (Q to quit):");
             email = scanner.nextLine();
 
             if(isValidEmail(email)){
@@ -27,14 +32,13 @@ public class FunWithRegex {
             }
 
 
-        } while (isValidEmail(email));
+        } while (!email.equals("Q"));
 
 
     }
 
     public static boolean isValidEmail(String email){
-        String regex = "^(.+)@(.+)$";
-        return email.matches(regex);
+        return email.matches(EMAIL_REGEX);
     }
 
 
