@@ -16,6 +16,7 @@ import java.util.List;
  */
 public class StudentFileManager {
 
+
     public static List<Student> loadStudents(File file, PrintStream logStream){
         List<Student> students = new ArrayList<Student>();
 
